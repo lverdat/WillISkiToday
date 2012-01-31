@@ -1,0 +1,31 @@
+<h1>Listing hills</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Snow cover bottom</th>
+    <th>Snow cover top</th>
+    <th>Lifts open</th>
+    <th>Lifts total</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @hills.each do |hill| %>
+  <tr>
+    <td><%= hill.name %></td>
+    <td><%= hill.snow_cover_bottom %></td>
+    <td><%= hill.snow_cover_top %></td>
+    <td><%= hill.lifts_open %></td>
+    <td><%= hill.lifts_total %></td>
+    <td><%= link_to 'Show', hill %></td>
+    <td><%= link_to 'Edit', edit_hill_path(hill) %></td>
+    <td><%= link_to 'Destroy', hill, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Hill', new_hill_path %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @hill.name %>
+</p>
+
+<p>
+  <b>Snow cover bottom:</b>
+  <%= @hill.snow_cover_bottom %>
+</p>
+
+<p>
+  <b>Snow cover top:</b>
+  <%= @hill.snow_cover_top %>
+</p>
+
+<p>
+  <b>Lifts open:</b>
+  <%= @hill.lifts_open %>
+</p>
+
+<p>
+  <b>Lifts total:</b>
+  <%= @hill.lifts_total %>
+</p>
+
+
+<%= link_to 'Edit', edit_hill_path(@hill) %> |
+<%= link_to 'Back', hills_path %>

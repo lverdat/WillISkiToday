@@ -1,0 +1,23 @@
+<h1>Listing run_types</h1>
+
+<table>
+  <tr>
+    <th>Label</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @run_types.each do |run_type| %>
+  <tr>
+    <td><%= run_type.label %></td>
+    <td><%= link_to 'Show', run_type %></td>
+    <td><%= link_to 'Edit', edit_run_type_path(run_type) %></td>
+    <td><%= link_to 'Destroy', run_type, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Run type', new_run_type_path %>

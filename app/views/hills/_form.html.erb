@@ -1,0 +1,37 @@
+<%= form_for(@hill) do |f| %>
+  <% if @hill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hill.errors.count, "error") %> prohibited this hill from being saved:</h2>
+
+      <ul>
+      <% @hill.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :snow_cover_bottom %><br />
+    <%= f.text_field :snow_cover_bottom %>
+  </div>
+  <div class="field">
+    <%= f.label :snow_cover_top %><br />
+    <%= f.text_field :snow_cover_top %>
+  </div>
+  <div class="field">
+    <%= f.label :lifts_open %><br />
+    <%= f.number_field :lifts_open %>
+  </div>
+  <div class="field">
+    <%= f.label :lifts_total %><br />
+    <%= f.number_field :lifts_total %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  snow_cover_bottom: 9.99
+  snow_cover_top: 9.99
+  lifts_open: 1
+  lifts_total: 1
+
+two:
+  name: MyString
+  snow_cover_bottom: 9.99
+  snow_cover_top: 9.99
+  lifts_open: 1
+  lifts_total: 1
