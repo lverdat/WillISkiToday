@@ -1,0 +1,29 @@
+<h1>Listing runs</h1>
+
+<table>
+  <tr>
+    <th>Hill</th>
+    <th>Run type</th>
+    <th>Total</th>
+    <th>Open</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @runs.each do |run| %>
+  <tr>
+    <td><%= run.hill %></td>
+    <td><%= run.run_type %></td>
+    <td><%= run.total %></td>
+    <td><%= run.open %></td>
+    <td><%= link_to 'Show', run %></td>
+    <td><%= link_to 'Edit', edit_run_path(run) %></td>
+    <td><%= link_to 'Destroy', run, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Run', new_run_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131152757) do
+ActiveRecord::Schema.define(:version => 20120131160007) do
 
   create_table "hills", :force => true do |t|
     t.string   "name"
@@ -28,5 +28,17 @@ ActiveRecord::Schema.define(:version => 20120131152757) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "runs", :force => true do |t|
+    t.integer  "hill_id"
+    t.integer  "run_type_id"
+    t.integer  "total"
+    t.integer  "open"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "runs", ["hill_id"], :name => "index_runs_on_hill_id"
+  add_index "runs", ["run_type_id"], :name => "index_runs_on_run_type_id"
 
 end
