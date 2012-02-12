@@ -25,7 +25,7 @@ class RunsController < ApplicationController
   # GET /runs/new.json
   def new
     @run = Run.new
-    @run_types = RunType.all
+    
     
     respond_to do |format|
       format.html # new.html.erb
@@ -42,17 +42,10 @@ class RunsController < ApplicationController
   # POST /runs
   # POST /runs.json
   def create
-    @run = Run.new(params[:run])
-
-    respond_to do |format|
-      if @run.save
-        format.html { redirect_to @run, notice: 'Run was successfully created.' }
-        format.json { render json: @run, status: :created, location: @run }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @run.errors, status: :unprocessable_entity }
-      end
-    end
+    @hill = Hill.find(params[:hill_id])
+    
+    @run = @hill.runs.create(params[:run])
+    redirect_to hill_path(@hill)    
   end
 
   # PUT /runs/1

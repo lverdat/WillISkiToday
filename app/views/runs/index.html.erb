@@ -13,8 +13,8 @@
 
 <% @runs.each do |run| %>
   <tr>
-    <td><%= run.hill %></td>
-    <td><%= run.run_type %></td>
+    <td><%= run.hill.name %></td>
+    <td><%= run.run_type.label %></td>
     <td><%= run.total %></td>
     <td><%= run.open %></td>
     <td><%= link_to 'Show', run %></td>

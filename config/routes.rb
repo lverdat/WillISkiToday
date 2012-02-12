@@ -4,7 +4,9 @@ WillISkiToday::Application.routes.draw do
 
   resources :run_types
 
-  resources :hills
+  resources :hills do
+    resources :runs
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
