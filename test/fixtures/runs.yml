@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hill: 
+  run_type: 
+  total: 1
+  open: 1
+
+two:
+  hill: 
+  run_type: 
+  total: 1
+  open: 1
