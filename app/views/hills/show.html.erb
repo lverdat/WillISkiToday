@@ -25,24 +25,12 @@
   <%= @hill.lifts_total %>
 </p>
 
+<h2>Runs</h2>
+<div><label>Name | Type | Open</label></div>
+<%= render @hill.runs %>
+
 <h2>Add a new run</h2>
-<%= form_for([@hill, @hill.runs.build]) do |f| %>
-  <div class="field">
-    <%= f.label :run_type %><br />
-	<%= collection_select(:run, :run_type_id,RunType.all,:id,:label)%>
-  </div>
-  <div class="field">
-    <%= f.label :total %><br />
-    <%= f.number_field :total %>
-  </div>
-  <div class="field">
-    <%= f.label :open %><br />
-    <%= f.number_field :open %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render "runs/form" %>
 
 <%= link_to 'Edit', edit_hill_path(@hill) %> |
 <%= link_to 'Back', hills_path %>

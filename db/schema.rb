@@ -49,13 +49,14 @@ ActiveRecord::Schema.define(:version => 20120213142113) do
   create_table "runs", :force => true do |t|
     t.integer  "hill_id"
     t.integer  "run_type_id"
-    t.integer  "total"
-    t.integer  "open"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.boolean  "open"
+    t.string   "name"
   end
 
   add_index "runs", ["hill_id"], :name => "index_runs_on_hill_id"
+  add_index "runs", ["open"], :name => "index_runs_on_open"
   add_index "runs", ["run_type_id"], :name => "index_runs_on_run_type_id"
 
 end

@@ -4,7 +4,6 @@
   <tr>
     <th>Hill</th>
     <th>Run type</th>
-    <th>Total</th>
     <th>Open</th>
     <th></th>
     <th></th>
@@ -14,8 +13,8 @@
 <% @runs.each do |run| %>
   <tr>
     <td><%= run.hill.name %></td>
+    <td><%= run.name %></td>
     <td><%= run.run_type.label %></td>
-    <td><%= run.total %></td>
     <td><%= run.open %></td>
     <td><%= link_to 'Show', run %></td>
     <td><%= link_to 'Edit', edit_run_path(run) %></td>
