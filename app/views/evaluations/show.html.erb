@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Run:</b>
+  <%= @evaluation.run %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @evaluation.note %>
+</p>
+
+<p>
+  <b>Snowqual:</b>
+  <%= @evaluation.snowQual %>
+</p>
+
+<p>
+  <b>Pers:</b>
+  <%= @evaluation.pers %>
+</p>
+
+
+<%= link_to 'Edit', edit_evaluation_path(@evaluation) %> |
+<%= link_to 'Back', evaluations_path %>

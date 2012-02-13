@@ -1,5 +1,9 @@
 WillISkiToday::Application.routes.draw do
   
+  resources :evaluations
+
+  resources :clients
+
   resources :run_types
 
   resources :hills
