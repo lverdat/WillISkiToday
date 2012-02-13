@@ -24,8 +24,7 @@ class RunsController < ApplicationController
   # GET /runs/new
   # GET /runs/new.json
   def new
-    @run = Run.new
-    
+    @run = Run.new    
     
     respond_to do |format|
       format.html # new.html.erb
@@ -68,10 +67,11 @@ class RunsController < ApplicationController
   # DELETE /runs/1.json
   def destroy
     @run = Run.find(params[:id])
+    @hill = Hill.find(params[:hill_id])
     @run.destroy
 
     respond_to do |format|
-      format.html { redirect_to runs_url }
+      format.html { redirect_to hill_path(@hill) }
       format.json { head :no_content }
     end
   end
