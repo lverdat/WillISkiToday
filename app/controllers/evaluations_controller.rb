@@ -24,6 +24,11 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   # GET /evaluations/new.json
   def new
+    if !session[:client] || !session[:client][:admin]
+        redirect_to root_url
+        return
+    end
+    
     @evaluation = Evaluation.new
 
     respond_to do |format|
@@ -34,6 +39,11 @@ class EvaluationsController < ApplicationController
 
   # GET /evaluations/1/edit
   def edit
+    if !session[:client] || !session[:client][:admin]
+        redirect_to root_url
+        return
+    end
+    
     @evaluation = Evaluation.find(params[:id])
   end
 
@@ -42,7 +52,6 @@ class EvaluationsController < ApplicationController
   def create
     @run = Run.find(params[:run_id])
     
-    client = Client.find(session[:client][:id])
     if session[:client] != nil
       client = Client.find(session[:client][:id])
     end

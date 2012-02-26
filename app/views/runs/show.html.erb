@@ -17,7 +17,7 @@
   <%= @run.open %>
 </p>
 
-<% if @globalMark %>
+<% if @globalMark != nil %>
 	<p>
 	  <b>Global mark:</b>
 	  <%= @globalMark %>
@@ -34,10 +34,10 @@
 	<%= render @run.evaluations %>
 </table>
 
-<% if session[:client] && session[:client][:admin] %>
-	<h2>Add a new evaluation</h2>
-	<%= render "evaluations/form" %>
-	
+<h2>Add a new evaluation</h2>
+<%= render "evaluations/form" %>
+
+<% if session[:client] && session[:client][:admin] %>	
 	<%= link_to 'Edit', edit_run_path(@run) %>
 <% end %>
 

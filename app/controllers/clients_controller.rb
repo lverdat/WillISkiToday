@@ -25,7 +25,8 @@ class ClientsController < ApplicationController
   # GET /clients/new.json
   def new
     if !session[:client] || !session[:client][:admin]
-        redirect_to_root_url
+        redirect_to root_url
+        return
     end
     
     @client = Client.new
@@ -38,6 +39,11 @@ class ClientsController < ApplicationController
 
   # GET /clients/1/edit
   def edit
+    if !session[:client] || !session[:client][:admin]
+        redirect_to root_url
+        return
+    end
+    
     @client = Client.find(params[:id])
   end
 
@@ -55,12 +61,6 @@ class ClientsController < ApplicationController
         format.json { render json: @client.errors, status: :unprocessable_entity }
       end
     end
-  end
-  
-  def deconnect
-    @client = nil
-    session[:current_user_id] = nil
-    redirect_to_root_url
   end
 
   # PUT /clients/1
