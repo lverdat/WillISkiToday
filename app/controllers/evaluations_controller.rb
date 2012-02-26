@@ -40,17 +40,17 @@ class EvaluationsController < ApplicationController
   # POST /evaluations
   # POST /evaluations.json
   def create
-    @evaluation = Evaluation.new(params[:evaluation])
-
-    respond_to do |format|
-      if @evaluation.save
-        format.html { redirect_to @evaluation, notice: 'Evaluation was successfully created.' }
-        format.json { render json: @evaluation, status: :created, location: @evaluation }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @evaluation.errors, status: :unprocessable_entity }
-      end
+    @run = Run.find(params[:run_id])
+    
+    client = Client.find(session[:client][:id])
+    if session[:client] != nil
+      client = Client.find(session[:client][:id])
     end
+    
+    @evaluation = Evaluation.create(:run => @run, :client => client, :note => params[:evaluation][:note],
+      :pers => params[:evaluation][:pers], :snowQual => params[:evaluation][:snowQual])
+    #@run.evaluations.create(params[:evaluation], :client => client)
+    redirect_to run_path(@run)
   end
 
   # PUT /evaluations/1

@@ -1,13 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1> Run : <%= @run.name %></h1>
+
 <p>
   <b>Hill:</b>
   <%= @run.hill.name %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @run.name %>
 </p>
 
 <p>
@@ -20,7 +17,27 @@
   <%= @run.open %>
 </p>
 
+<% if @globalMark %>
+	<p>
+	  <b>Global mark:</b>
+	  <%= @globalMark %>
+	</p>
+<% end %>
+
+<h2>Evaluations</h2>
+<table>
+	<tr><th>Author</th><th>Note</th><th>Snow Quality</th><th>Personnal</th>
+		<% if session[:client] && session[:client][:admin] %>
+			<th>Edit</th><th>Delete</th>
+		<% end %>
+	</tr>
+	<%= render @run.evaluations %>
+</table>
+
 <% if session[:client] && session[:client][:admin] %>
+	<h2>Add a new evaluation</h2>
+	<%= render "evaluations/form" %>
+	
 	<%= link_to 'Edit', edit_run_path(@run) %>
 <% end %>
 

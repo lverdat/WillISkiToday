@@ -14,7 +14,16 @@ class RunsController < ApplicationController
   # GET /runs/1.json
   def show
     @run = Run.find(params[:id])
-
+    
+    if @run.evaluations.length > 0
+      @globalMark = 0
+      @run.evaluations.each do |eval|
+        @globalMark += eval.note
+      end
+      
+      @globalMark /= @run.evaluations.length
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @run }

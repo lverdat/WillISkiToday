@@ -1,31 +1,26 @@
-<%= form_for(@evaluation) do |f| %>
-  <% if @evaluation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@evaluation.errors.count, "error") %> prohibited this evaluation from being saved:</h2>
-
-      <ul>
-      <% @evaluation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for([@run, @run.evaluations.build]) do |f| %>
 
   <div class="field">
-    <%= f.label :run %><br />
-    <%= f.text_field :run %>
+    <p style="margin-bottom: 0;">Note</p>
+    Lousy |
+    <%= f.radio_button :note, "0" %>0
+    <%= f.radio_button :note, "1" %>1
+    <%= f.radio_button :note, "2" %>2
+    <%= f.radio_button :note, "3" %>3
+    <%= f.radio_button :note, "4" %>4
+    | Great
   </div>
   <div class="field">
-    <%= f.label :note %><br />
-    <%= f.text_field :note %>
+    <br /><p style="margin-bottom: 0;">Snow Quality</p>
+    <%= f.radio_button :snowQual, "Rocky" %>Rocky
+    <%= f.radio_button :snowQual, "Powder" %>Powder
+    <%= f.radio_button :snowQual, "Artificial" %>Artificial snow
+    <%= f.radio_button :snowQual, "Hard" %>Hard
+    <%= f.radio_button :snowQual, "Soup" %>Soup
   </div>
   <div class="field">
-    <%= f.label :snowQual %><br />
-    <%= f.text_field :snowQual %>
-  </div>
-  <div class="field">
-    <%= f.label :pers %><br />
-    <%= f.text_field :pers %>
+    <br /><p style="margin-bottom: 0;">Personnal comments</p>
+    <%= f.text_area :pers %>
   </div>
   <div class="actions">
     <%= f.submit %>

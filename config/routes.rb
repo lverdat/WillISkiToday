@@ -4,7 +4,9 @@ WillISkiToday::Application.routes.draw do
 
   resources :clients
   
-  resources :runs
+  resources :runs do
+    resources :evaluations
+  end
 
   resources :run_types
 
