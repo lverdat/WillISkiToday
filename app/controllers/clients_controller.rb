@@ -52,6 +52,26 @@ class ClientsController < ApplicationController
       end
     end
   end
+  
+  #  @client = Client.where(:login => params[:login], :pass => params[:pass])
+  #  session[:current_user_id] = user.id
+  #  
+  #  respond_to do |format|
+  #    if @client.update_attributes(params[:client])
+  #      format.html { redirect_to_root_url, notice: 'You are logged as ' + @client.login }
+  #      format.json { head :no_content }
+  #    else
+  #      format.html { render action: "edit" }
+  #      format.json { render json: @client.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
+  
+  def deconnect
+    @client = nil
+    session[:current_user_id] = nil
+    redirect_to_root_url
+  end
 
   # PUT /clients/1
   # PUT /clients/1.json

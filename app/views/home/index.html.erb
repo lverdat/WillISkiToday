@@ -1,0 +1,30 @@
+<h1>Will I Ski Today ?</h1>
+
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:warning] %>
+	<p class="warning"><%= flash[:warning] %></p>
+<% end %>
+
+<% if session[:client] == nil %>
+	<%= form_tag("/login", :action => "login", :method => "post") do %>
+	
+	  <div class="field">
+	    <%= label_tag(:login, "Login : ") %><br />
+	    <%= text_field_tag(:login) %>
+	  </div>
+	  
+	  <div class="field">
+	    <%= label_tag(:pass, "Password : ") %><br />
+	    <%= password_field_tag(:pass) %>
+	  </div>
+	  
+	  <div class="actions">
+	    <%= submit_tag("Login") %>
+	  </div>
+	<% end %>
+
+<% else %>
+	<p><a href="/logout">Se déconnecter ?</a></p>
+<% end %>

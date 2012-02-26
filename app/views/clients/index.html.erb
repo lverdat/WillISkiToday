@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Id</th>
+    <th>Login</th>
     <th>Pass</th>
     <th></th>
     <th></th>
@@ -11,7 +11,7 @@
 
 <% @clients.each do |client| %>
   <tr>
-    <td><%= client.id %></td>
+    <td><%= client.login %></td>
     <td><%= client.pass %></td>
     <td><%= link_to 'Show', client %></td>
     <td><%= link_to 'Edit', edit_client_path(client) %></td>

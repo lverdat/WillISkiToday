@@ -1,15 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Id:</b>
-  <%= @client.id %>
+  <b>Login:</b>
+  <%= @client.login %>
 </p>
 
 <p>
   <b>Pass:</b>
   <%= @client.pass %>
 </p>
-
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

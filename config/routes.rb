@@ -3,7 +3,7 @@ WillISkiToday::Application.routes.draw do
   resources :evaluations
 
   resources :clients
-
+  
   resources :runs
 
   resources :run_types
@@ -11,6 +11,11 @@ WillISkiToday::Application.routes.draw do
   resources :hills do
     resources :runs
   end
+
+  root :to => 'home#index'
+
+  match "/login" => "home#login", :via => :post
+  match "/logout" => "home#logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
