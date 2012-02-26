@@ -24,6 +24,10 @@ class ClientsController < ApplicationController
   # GET /clients/new
   # GET /clients/new.json
   def new
+    if !session[:client] || !session[:client][:admin]
+        redirect_to_root_url
+    end
+    
     @client = Client.new
 
     respond_to do |format|
@@ -40,7 +44,7 @@ class ClientsController < ApplicationController
   # POST /clients
   # POST /clients.json
   def create
-    @client = Client.new(params[:client])
+    @client = Client.new(:login => params[:client][:login], :pass => params[:client][:pass], :admin => false)
 
     respond_to do |format|
       if @client.save
@@ -52,20 +56,6 @@ class ClientsController < ApplicationController
       end
     end
   end
-  
-  #  @client = Client.where(:login => params[:login], :pass => params[:pass])
-  #  session[:current_user_id] = user.id
-  #  
-  #  respond_to do |format|
-  #    if @client.update_attributes(params[:client])
-  #      format.html { redirect_to_root_url, notice: 'You are logged as ' + @client.login }
-  #      format.json { head :no_content }
-  #    else
-  #      format.html { render action: "edit" }
-  #      format.json { render json: @client.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
   
   def deconnect
     @client = nil

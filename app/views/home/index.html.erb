@@ -66,6 +66,7 @@
 <br />
 
 <% if session[:client] && session[:client][:admin] %>
-	<%= link_to 'New Hill', new_hill_path %>
+	<%= link_to 'New Hill', new_hill_path %> |
+	<%= link_to 'New Client', new_client_path %>
 <% end %>
 
