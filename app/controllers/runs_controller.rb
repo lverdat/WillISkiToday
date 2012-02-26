@@ -1,4 +1,6 @@
 class RunsController < ApplicationController
+  before_filter :require_admin, :except => [:index, :show]
+  
   # GET /runs
   # GET /runs.json
   def index

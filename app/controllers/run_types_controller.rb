@@ -1,4 +1,7 @@
 class RunTypesController < ApplicationController
+  before_filter :require_admin
+  
+  
   # GET /run_types
   # GET /run_types.json
   def index

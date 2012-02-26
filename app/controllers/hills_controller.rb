@@ -1,4 +1,6 @@
 class HillsController < ApplicationController
+  before_filter :require_admin, :except => [:index, :show]
+  
   # GET /hills
   # GET /hills.json
   def index
