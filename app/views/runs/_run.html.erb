@@ -1,6 +1,9 @@
-<div>
-  <%= run.name%> | 
-  <%= run.run_type.label %> | 
-  <%= run.open %> | 
-  <%= link_to 'Destroy Run', [run.hill, run], confirm: 'Are you sure?', method: :delete %>
-</div>
+<tr>
+	<td><%= run.name%></td>
+	<td><%= run.run_type.label %></td> 
+	<td><%= run.open %></td>
+	<% if session[:client] && session[:client][:admin] %>
+		<td><%= link_to 'Edit', edit_run_path(run) %></td>
+		<td><%= link_to 'Destroy', run, confirm: 'Are you sure?', method: :delete %></td>
+	<% end %>
+</tr>

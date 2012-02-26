@@ -5,9 +5,12 @@
     <th>Hill</th>
     <th>Run type</th>
     <th>Open</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    
+    <% if session[:client] && session[:client][:admin] %>
+    	<th></th>
+    	<th></th>
+    	<th></th>
+    <% end %>
   </tr>
 
 <% @runs.each do |run| %>
@@ -16,9 +19,11 @@
     <td><%= run.name %></td>
     <td><%= run.run_type.label %></td>
     <td><%= run.open %></td>
-    <td><%= link_to 'Show', run %></td>
-    <td><%= link_to 'Edit', edit_run_path(run) %></td>
-    <td><%= link_to 'Destroy', run, confirm: 'Are you sure?', method: :delete %></td>
+    <% if session[:client] && session[:client][:admin] %>
+        <td><%= link_to 'Show', run %></td>
+    	<td><%= link_to 'Edit', edit_run_path(run) %></td>
+    	<td><%= link_to 'Destroy', run, confirm: 'Are you sure?', method: :delete %></td>
+   	<% end %>
   </tr>
 <% end %>
 </table>

@@ -24,15 +24,23 @@ h1 a, h1 a:hover{
 	text-decoration: none;
 }
 
-h2 {
+/*h2 {
 	margin: 0;
 	padding: 0;
-}
+}*/
 
 header > div, #content > div {
 	width: 1024px;
 	margin: 0 auto;
-} 
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td, th {
+	border: solid black 1px;
+}
 
 /* @header */
 header {

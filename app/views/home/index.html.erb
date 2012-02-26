@@ -5,6 +5,8 @@
 	<p class="warning"><%= flash[:warning] %></p>
 <% end %>
 
+<h1>Authentification</h1>
+
 <% if session[:client] == nil %>
 	<%= form_tag("/login", :action => "login", :method => "post") do %>
 	

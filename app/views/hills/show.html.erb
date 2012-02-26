@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
+<h1>Hill : <%= @hill.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @hill.name %>
-</p>
+<p id="notice"><%= notice %></p>
+<h2> Conditions </h2>
 
 <p>
   <b>Snow cover bottom:</b>
@@ -25,12 +23,26 @@
   <%= @hill.lifts_total %>
 </p>
 
+<p>
+  <b>Updated at:</b>
+  <%= @hill.updated_at %>
+</p>
+
 <h2>Runs</h2>
-<div><label>Name | Type | Open</label></div>
-<%= render @hill.runs %>
+<table>
+	<tr><th>Name</th><th>Type</th><th>Open</th>
+		<% if session[:client] && session[:client][:admin] %>
+			<th>Edit</th><th>Delete</th>
+		<% end %>
+	</tr>
+	<%= render @hill.runs %>
+</table>
 
-<h2>Add a new run</h2>
-<%= render "runs/form" %>
+<% if session[:client] && session[:client][:admin] %>
+	<h2>Add a new run</h2>
+	<%= render "runs/form" %>
 
-<%= link_to 'Edit', edit_hill_path(@hill) %> |
-<%= link_to 'Back', hills_path %>
+	<%= link_to 'Edit', edit_hill_path(@hill) %> |
+<% end %>
+
+<%= link_to 'Back', root_url %>
