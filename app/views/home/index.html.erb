@@ -1,5 +1,3 @@
-<h1>Will I Ski Today ?</h1>
-
 <% if flash[:notice] %>
 	<p class="notice"><%= flash[:notice] %></p>
 <% end %>
@@ -26,5 +24,46 @@
 	<% end %>
 
 <% else %>
-	<p><a href="/logout">Se déconnecter ?</a></p>
+	<p>
+		Vous êtes actuellement connecté en tant que : <%= session[:client][:login] %><br />
+		<a href="/logout">Se déconnecter ?</a></p>
 <% end %>
+
+<h1>Listing hills</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Snow cover bottom</th>
+    <th>Snow cover top</th>
+    <th>Lifts open</th>
+    <th>Lifts total</th>
+    
+<% if session[:client] && session[:client][:admin] %>
+    <th></th>
+    <th></th>
+<% end %>
+  </tr>
+
+<% @hills.each do |hill| %>
+  <tr>
+    <td><%= link_to hill.name, hill %></td>
+    <td><%= hill.snow_cover_bottom %></td>
+    <td><%= hill.snow_cover_top %></td>
+    <td><%= hill.lifts_open %></td>
+    <td><%= hill.lifts_total %></td>
+    
+<% if session[:client] && session[:client][:admin] %>
+    <td><%= link_to 'Edit', edit_hill_path(hill) %></td>
+    <td><%= link_to 'Destroy', hill, confirm: 'Are you sure?', method: :delete %></td>
+<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if session[:client] && session[:client][:admin] %>
+	<%= link_to 'New Hill', new_hill_path %>
+<% end %>
+

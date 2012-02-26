@@ -28,4 +28,6 @@
 
 <br />
 
-<%= link_to 'New Hill', new_hill_path %>
+<% if session[:client] && session[:client][:admin] %>
+	<%= link_to 'New Hill', new_hill_path %>
+<% end %>

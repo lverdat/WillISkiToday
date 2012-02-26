@@ -19,10 +19,20 @@ body {
 	margin: 0px;
 }
 
+h1 a, h1 a:hover{
+	color: white;
+	text-decoration: none;
+}
+
 h2 {
 	margin: 0;
 	padding: 0;
 }
+
+header > div, #content > div {
+	width: 1024px;
+	margin: 0 auto;
+} 
 
 /* @header */
 header {
@@ -36,11 +46,6 @@ header {
   	background: -ms-linear-gradient(top, #000000, #180773);
   	background: linear-gradient(top, #000000, #180773);
 }
-
-header > div {
-	width: 1024px;
-	margin: 0 auto;
-} 
 
 header > div > h1 {
 	float: left;

@@ -15,7 +15,10 @@ class HomeController < ActionController::Base
   
    def login
     if request.post?
-      if session[:client] = Client.where("login = ? AND pass = ?", params[:login], params[:pass]);
+      @client = Client.authenticate(params[:login], params[:pass])
+      
+      if @client[0] != nil
+        session[:client] = @client[0]
         flash[:message] = "Login successfull"
       else
         flash[:warning] = "Login unsuccessfull"
@@ -27,6 +30,7 @@ class HomeController < ActionController::Base
   
   def logout
     session[:client] = nil
+    
     flash[:message] = "Logged out"
     redirect_to :action => 'index'
   end
