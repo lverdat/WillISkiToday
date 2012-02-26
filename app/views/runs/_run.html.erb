@@ -1,5 +1,5 @@
 <tr>
-	<td><%= run.name%></td>
+	<td><%= link_to run.name, run %></td>
 	<td><%= run.run_type.label %></td> 
 	<td><%= run.open %></td>
 	<% if session[:client] && session[:client][:admin] %>

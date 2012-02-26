@@ -20,6 +20,8 @@
   <%= @run.open %>
 </p>
 
+<% if session[:client] && session[:client][:admin] %>
+	<%= link_to 'Edit', edit_run_path(@run) %>
+<% end %>
 
-<%= link_to 'Edit', edit_run_path(@run) %> |
-<%= link_to 'Back', runs_path %>
+<%= link_to 'Back', root_url %>
