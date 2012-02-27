@@ -47,6 +47,8 @@ class RunsController < ApplicationController
   # GET /runs/1/edit
   def edit
     @run = Run.find(params[:id])
+    #Run.hill car la vue est orientée liste de runs pour un hill
+    @hill = @run.hill
   end
 
   # POST /runs

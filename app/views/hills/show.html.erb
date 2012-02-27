@@ -40,7 +40,7 @@
 
 <% if session[:client] && session[:client][:admin] %>
 	<h2>Add a new run</h2>
-	<%= render "runs/form" %>
+	<%= render "runs/formhill" %>
 
 	<%= link_to 'Edit', edit_hill_path(@hill) %> |
 <% end %>
