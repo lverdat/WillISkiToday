@@ -1,7 +1,7 @@
 <%= form_for([@run, @run.evaluations.build]) do |f| %>
 
   <div class="field">
-    <p style="margin-bottom: 0;">Note</p>
+    <p style="margin-bottom: 0; font-weight: bold;">Note</p>
     Lousy |
     <%= f.radio_button :note, "0" %>0
     <%= f.radio_button :note, "1" %>1
@@ -11,7 +11,7 @@
     | Great
   </div>
   <div class="field">
-    <br /><p style="margin-bottom: 0;">Snow Quality</p>
+    <br /><p style="margin-bottom: 0; font-weight: bold;">Snow Quality</p>
     <%= f.radio_button :snowQual, "Rocky" %>Rocky
     <%= f.radio_button :snowQual, "Powder" %>Powder
     <%= f.radio_button :snowQual, "Artificial" %>Artificial snow
@@ -19,7 +19,7 @@
     <%= f.radio_button :snowQual, "Soup" %>Soup
   </div>
   <div class="field">
-    <br /><p style="margin-bottom: 0;">Personnal comments</p>
+    <br /><p style="margin-bottom: 0; font-weight: bold;">Personnal comments</p>
     <%= f.text_area :pers %>
   </div>
   <div class="actions">

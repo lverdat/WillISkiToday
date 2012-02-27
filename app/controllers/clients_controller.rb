@@ -24,11 +24,6 @@ class ClientsController < ApplicationController
   # GET /clients/new
   # GET /clients/new.json
   def new
-    if !session[:client] || !session[:client][:admin]
-        redirect_to root_url
-        return
-    end
-    
     @client = Client.new
 
     respond_to do |format|
